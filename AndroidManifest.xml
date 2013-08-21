@@ -7,8 +7,12 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name="com.ryantang.rtcommondemo.imageloader.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -30,6 +34,10 @@
         <activity android:name="com.ryantang.rtcommondemo.slidingmenu.MainSlidingMenuActivity" />
         <activity android:name="com.ryantang.rtcommondemo.slidingmenu.NewActivity" />
         
+		<activity android:name="com.ryantang.rtcommondemo.imageloader.TestImageLoaderActivity" />
+		<activity android:name="com.ryantang.rtcommondemo.imageloader.ImageGridActivity" />
+		<activity android:name="com.ryantang.rtcommondemo.imageloader.ImageListActivity" />
+		<activity android:name="com.ryantang.rtcommondemo.imageloader.ImagePagerActivity" />        
         
     </application>
 

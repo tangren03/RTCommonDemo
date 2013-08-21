@@ -6,6 +6,7 @@ import android.view.View.OnClickListener;
 
 import com.ryantang.common.activity.RTActivity;
 import com.ryantang.rtcommondemo.R;
+import com.ryantang.rtcommondemo.imageloader.TestImageLoaderActivity;
 import com.ryantang.rtcommondemo.pulllistview.TestRTPullListView;
 import com.ryantang.rtcommondemo.slidingmenu.MainSlidingMenuActivity;
 
@@ -66,6 +67,17 @@ public class MainActivity extends RTActivity {
 			@Override
 			public void onClick(View v) {
 				openActivity(MainSlidingMenuActivity.class);
+			}
+		});
+		
+		/**
+		 * Open image loader activity
+		 */
+		this.findViewById(R.id.btn_imageloader).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				openActivity(TestImageLoaderActivity.class);
 			}
 		});
 	}
