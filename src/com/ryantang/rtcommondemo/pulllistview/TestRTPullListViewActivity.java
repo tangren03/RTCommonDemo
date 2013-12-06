@@ -3,6 +3,7 @@ package com.ryantang.rtcommondemo.pulllistview;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,16 +11,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import com.ryantang.common.activity.RTActivity;
 import com.ryantang.common.pulllistview.RTPullListView;
 import com.ryantang.common.pulllistview.RTPullListView.OnRefreshListener;
 import com.ryantang.rtcommondemo.R;
-
-public class TestRTPullListView extends RTActivity {
+import com.ryantang.rtcommondemo.activity.BaseActivity;
+/**
+ * Use RTPullListView
+ * TestRTPullListView.java
+ * @author Ryan
+ * Create at 2013-12-6 下午1:26:01
+ */
+public class TestRTPullListViewActivity extends BaseActivity {
 
 	private static final int LOAD_MORE_SUCCESS = 1;
 	private static final int LOAD_NEW_INFO = 2;
@@ -35,10 +40,11 @@ public class TestRTPullListView extends RTActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pulllistview);
         
-        MyActivityManager.addActivity(this);
-        
         pullListView = (RTPullListView) this.findViewById(R.id.pullListView);
         
+        /**
+         * simulation data
+         */
         dataList = new ArrayList<String>();
 		for (int i = 0; i < 5; i++) {
 			dataList.add("Item data "+i);
@@ -46,14 +52,18 @@ public class TestRTPullListView extends RTActivity {
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
 		pullListView.setAdapter(adapter);
 		
-		//添加listview底部获取更多按钮（可自定义）
+		/**
+		 * Custom button on the bottom of the ListView
+		 */
         LayoutInflater inflater = LayoutInflater.from(this);
 		View view = inflater.inflate(R.layout.pulllist_foot, null);
 		RelativeLayout footerView =(RelativeLayout) view.findViewById(R.id.list_footview);
 		moreProgressBar = (ProgressBar) view.findViewById(R.id.footer_progress);
 		pullListView.addFooterView(footerView);
 		
-		//下拉刷新监听器
+		/**
+		 * Listener for pull
+		 */
 		pullListView.setonRefreshListener(new OnRefreshListener() {
 			
 			@Override
@@ -63,7 +73,9 @@ public class TestRTPullListView extends RTActivity {
 					@Override
 					public void run() {
 						try {
-							//模拟数据刷新
+							/**
+							 * Simulation data refreash
+							 */
 							Thread.sleep(2000);
 							dataList.clear();
 							for (int i = 0; i < 5; i++) {
@@ -77,8 +89,10 @@ public class TestRTPullListView extends RTActivity {
 				}).start();
 			}
 		});
-		
-		//获取更多监听器
+
+		/**
+		 * Listener for more
+		 */
 		footerView.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -91,7 +105,6 @@ public class TestRTPullListView extends RTActivity {
 					@Override
 					public void run() {
 						try {
-							//模拟数据刷新
 							Thread.sleep(2000);
 							for (int i = 0; i < 5; i++) {
 								dataList.add("New item data "+i);
@@ -106,8 +119,11 @@ public class TestRTPullListView extends RTActivity {
 		});
     }
     
-    //结果处理
-    private Handler myHandler = new Handler(){
+    /**
+     * Handle result
+     */
+    @SuppressLint("HandlerLeak")
+	private Handler myHandler = new Handler(){
 
 		@Override
 		public void handleMessage(Message msg) {

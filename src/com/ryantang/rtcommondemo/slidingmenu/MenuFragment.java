@@ -12,8 +12,10 @@ import android.widget.ListView;
 
 import com.ryantang.common.R;
 /**
- * 滑动菜单
+ * Sliding menu
+ * MenuFragment.java
  * @author Ryan
+ * Create at 2013-12-6 下午3:54:55
  */
 public class MenuFragment extends ListFragment {
 

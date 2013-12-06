@@ -8,6 +8,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 /**
+ * Custom Application
  * Initialize ImageLoader
  * 
  * @Author Ryan

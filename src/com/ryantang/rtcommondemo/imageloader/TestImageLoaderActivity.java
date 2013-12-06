@@ -20,6 +20,9 @@ public class TestImageLoaderActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_image_loader);
 		
+		/**
+		 * ListView style
+		 */
 		this.findViewById(R.id.btn_listview).setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -30,6 +33,9 @@ public class TestImageLoaderActivity extends Activity {
 			}
 		});
 		
+		/**
+		 * GridView style
+		 */
 		this.findViewById(R.id.btn_gridview).setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -40,6 +46,9 @@ public class TestImageLoaderActivity extends Activity {
 			}
 		});
 		
+		/**
+		 * ViewPager style
+		 */
 		this.findViewById(R.id.btn_viewpager).setOnClickListener(new OnClickListener() {
 			
 			@Override

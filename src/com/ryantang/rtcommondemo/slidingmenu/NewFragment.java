@@ -8,7 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ryantang.rtcommondemo.R;
-
+/**
+ * 
+ * NewFragment.java
+ * @author Ryan
+ * Create at 2013-12-6 下午3:55:12
+ */
 public class NewFragment extends Fragment {
 
 	public NewFragment(){

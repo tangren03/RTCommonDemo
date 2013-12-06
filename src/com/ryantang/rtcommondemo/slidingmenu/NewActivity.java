@@ -5,7 +5,12 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.ryantang.rtcommondemo.R;
-
+/**
+ * 
+ * NewActivity.java
+ * @author Ryan
+ * Create at 2013-12-6 下午3:55:06
+ */
 public class NewActivity extends Activity {
 
 	@Override

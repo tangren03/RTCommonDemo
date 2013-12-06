@@ -4,26 +4,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.ryantang.common.activity.RTActivity;
+import com.ryantang.common.activity.RTActivityManager;
 import com.ryantang.rtcommondemo.R;
 import com.ryantang.rtcommondemo.imageloader.TestImageLoaderActivity;
-import com.ryantang.rtcommondemo.pulllistview.TestRTPullListView;
+import com.ryantang.rtcommondemo.pulllistview.TestRTPullListViewActivity;
 import com.ryantang.rtcommondemo.slidingmenu.MainSlidingMenuActivity;
-
-public class MainActivity extends RTActivity {
+/**
+ * Main Activity
+ * @author Ryan
+ * Create at 2013-12-6 下午12:23:43
+ */
+public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		/**
-		 * Use RTActivityManager to manage your activity
-		 */
-		printActivityCount();
-		MyActivityManager.addActivity(this);
-		printActivityCount();
-		
 		/**
 		 * open new activity and bring a parameter
 		 */
@@ -35,16 +31,13 @@ public class MainActivity extends RTActivity {
 				bundle.putString("params", "TEST");
 				openActivity(SecondActivity.class, bundle);
 				
+				/* Other ways to open new Activity */
 //				openActivity(SecondActivity.class);
 //				openActivity(action, pBundle)
 //				openActivity(action)
 				
-				/**
-				 * close the activity ,two ways
-				 */
-				MyActivityManager.finishCurrentActivity();
+				//close current activity
 //				closeActivity();
-				printActivityCount();
 			}
 		});
 		
@@ -55,7 +48,7 @@ public class MainActivity extends RTActivity {
 			
 			@Override
 			public void onClick(View v) {
-				openActivity(TestRTPullListView.class);
+				openActivity(TestRTPullListViewActivity.class);
 			}
 		});
 		
@@ -82,8 +75,9 @@ public class MainActivity extends RTActivity {
 		});
 	}
 
-	private void printActivityCount(){
-		System.out.println("Activity count:"+MyActivityManager.getActivityCount());
+	@Override
+	protected void onResume() {
+		super.onResume();
+		RTActivityManager.printActivityCount();
 	}
-
 }

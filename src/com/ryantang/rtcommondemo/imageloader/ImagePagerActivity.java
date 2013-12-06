@@ -38,7 +38,10 @@ import com.ryantang.rtcommondemo.R;
 import com.ryantang.rtcommondemo.imageloader.Constants.Extra;
 
 /**
- * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
+ * 
+ * ImagePagerActivity.java
+ * @author Ryan
+ * Create at 2013-12-6 下午3:49:09
  */
 public class ImagePagerActivity extends Activity {
 

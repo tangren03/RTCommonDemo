@@ -31,7 +31,10 @@ import com.ryantang.rtcommondemo.R;
 import com.ryantang.rtcommondemo.imageloader.Constants.Extra;
 
 /**
- * @author Sergey Tarasevich (nostra13[at]gmail[dot]com)
+ * GridView images
+ * ImageGridActivity.java
+ * @author Ryan
+ * Create at 2013-12-6 下午3:48:35
  */
 public class ImageGridActivity extends BaseListViewActivity {
 
@@ -73,6 +76,9 @@ public class ImageGridActivity extends BaseListViewActivity {
 		startActivity(intent);
 	}
 
+	/*
+	 * Adapter
+	 */
 	public class ImageAdapter extends BaseAdapter {
 		@Override
 		public int getCount() {
